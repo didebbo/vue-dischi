@@ -29,9 +29,6 @@ body {
   font-family: "Roboto", sans-serif;
   font-size: 1rem;
   cursor: default;
-}
-
-main {
   background-color: $color-body;
 }
 </style>

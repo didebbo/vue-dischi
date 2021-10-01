@@ -1,5 +1,5 @@
 <template>
-  <div class="album">
+  <div class="album col-12 col-md-4 col-lg-3">
     <div class="inner">
       <div class="thumb">
         <img :src="data.poster" :alt="data.title" />
@@ -33,7 +33,7 @@ export default {
 <style scoped lang="scss">
 @import "./../scss/colors";
 .album {
-  width: (100% / 5);
+  // width: (100% / 5);
   padding: 1em;
   display: flex;
   flex-direction: column;
@@ -46,9 +46,15 @@ export default {
 
     .thumb {
       display: flex;
+      &::after {
+        content: "";
+        display: block;
+        padding-bottom: 100%;
+      }
+
       img {
         width: 100%;
-        height: 10em;
+        height: 100%;
         object-fit: cover;
         object-position: center;
       }
