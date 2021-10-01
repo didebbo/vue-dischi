@@ -36,5 +36,9 @@ export default {
 
 .albums {
   color: $color-light-text;
+  display: flex;
+  flex-wrap: wrap;
+  border: 0.2em solid red;
+  padding: 1em 0;
 }
 </style>
