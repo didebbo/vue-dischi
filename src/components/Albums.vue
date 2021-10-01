@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="albums row">
+    <div class="albums row row-cols-1 row-cols-md-2 row-cols-lg-5">
       <Album v-for="(album, index) in albums" :key="index" :data="album" />
     </div>
   </div>
