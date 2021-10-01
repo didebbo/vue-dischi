@@ -10,11 +10,13 @@
             {{ data.title }}
           </h6>
         </div>
-        <div class="author">
-          {{ data.author }}
-        </div>
-        <div class="year">
-          {{ data.year }}
+        <div class="desc">
+          <span class="author">
+            {{ data.author }}
+          </span>
+          <span class="year">
+            {{ data.year }}
+          </span>
         </div>
       </div>
     </div>
@@ -31,21 +33,22 @@ export default {
 <style scoped lang="scss">
 @import "./../scss/colors";
 .album {
-  // border: 0.2em solid green;
   width: (100% / 5);
+  padding: 1em;
   display: flex;
   flex-direction: column;
-  padding: 1em;
   .inner {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
     padding: 1em;
     background-color: $color-header;
 
     .thumb {
       display: flex;
-      // border: 0.2em solid red;
       img {
         width: 100%;
-        height: 100%;
+        height: 10em;
         object-fit: cover;
         object-position: center;
       }
@@ -53,13 +56,18 @@ export default {
     .info {
       display: flex;
       flex-direction: column;
-      align-items: center;
+      text-align: center;
       .title {
-        padding: 1em 0;
+        margin: 1em 0;
         text-transform: uppercase;
       }
-      .year {
-        font-size: 0.9em;
+      .desc {
+        span {
+          display: block;
+        }
+        .year {
+          font-size: 0.9em;
+        }
       }
     }
   }
