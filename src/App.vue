@@ -21,9 +21,9 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~bootstrap/scss/bootstrap";
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
 @import "./scss/colors";
+@import "~bootstrap/scss/bootstrap";
 
 body {
   font-family: "Roboto", sans-serif;

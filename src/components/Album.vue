@@ -2,20 +2,28 @@
   <div class="album">
     <div class="inner">
       <div class="thumb">
-        <img :src="data.poster" :alt="data.title" />
+        <a href="#">
+          <img :src="data.poster" :alt="data.title" />
+        </a>
       </div>
       <div class="info">
         <div class="title">
           <h6>
-            {{ data.title }}
+            <a href="#">
+              {{ data.title }}
+            </a>
           </h6>
         </div>
         <div class="desc">
           <span class="author">
-            {{ data.author }}
+            <a href="#">
+              {{ data.author }}
+            </a>
           </span>
           <span class="year">
-            {{ data.year }}
+            <a href="#">
+              {{ data.year }}
+            </a>
           </span>
         </div>
       </div>
@@ -36,6 +44,12 @@ export default {
   padding: 1em;
   display: flex;
   flex-direction: column;
+
+  a {
+    color: $color-light-text;
+    text-decoration: none;
+  }
+
   .inner {
     flex-grow: 1;
     display: flex;
@@ -51,11 +65,15 @@ export default {
         padding-bottom: 100%;
       }
 
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
+      a {
+        display: flex;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+        }
       }
     }
     .info {
