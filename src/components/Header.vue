@@ -21,7 +21,7 @@ export default {
   props: ["genres"],
   data() {
     return {
-      currentGenre: "",
+      currentGenre: this.genres[0].value,
     };
   },
   methods: {
