@@ -80,11 +80,14 @@ export default {
       display: flex;
       flex-direction: column;
       text-align: center;
+      justify-content: center;
+      flex-grow: 1;
       .title {
-        margin: 1em 0;
+        margin: 1em 0 0 0;
         text-transform: uppercase;
       }
       .desc {
+        opacity: 0.4;
         span {
           display: block;
         }
