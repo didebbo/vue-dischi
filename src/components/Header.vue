@@ -66,5 +66,10 @@ header {
   .logo {
     height: 2em;
   }
+  .filters {
+    > * {
+      margin: 0 0.4em;
+    }
+  }
 }
 </style>
