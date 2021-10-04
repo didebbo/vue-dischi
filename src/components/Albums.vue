@@ -69,6 +69,7 @@ export default {
 .albums {
   color: $color-light-text;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   padding: 1em 0;
 }
