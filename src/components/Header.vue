@@ -3,7 +3,7 @@
     <a href="#">
       <img src="/images/spotify-logo.png" alt="Spotify" class="logo" />
     </a>
-    <select>
+    <select @change="filterGenre" v-model="currentGenre">
       <option
         v-for="(genre, index) in genres"
         :key="index"
@@ -19,6 +19,16 @@
 export default {
   name: "Header",
   props: ["genres"],
+  data() {
+    return {
+      currentGenre: "",
+    };
+  },
+  methods: {
+    filterGenre() {
+      this.$emit("changeGenre", this.currentGenre);
+    },
+  },
 };
 </script>
 

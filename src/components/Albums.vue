@@ -1,7 +1,11 @@
 <template>
   <div class="container">
     <div class="albums row row-cols-1 row-cols-md-2 row-cols-lg-5">
-      <Album v-for="(album, index) in albums" :key="index" :data="album" />
+      <Album
+        v-for="(album, index) in filteredAlbums"
+        :key="index"
+        :data="album"
+      />
     </div>
   </div>
 </template>
@@ -12,6 +16,7 @@ import Album from "./Album.vue";
 
 export default {
   name: "Albums",
+  props: ["currentGenre"],
   components: {
     Album,
   },
@@ -24,6 +29,7 @@ export default {
           {
             label: "All",
             value: "",
+            selected: true,
           },
         ],
       },
@@ -40,12 +46,19 @@ export default {
             this.genres.obj.push({
               label: album.genre,
               value: album.genre.toLowerCase(),
+              selected: false,
             });
           }
         });
-        console.log(this.genres);
         this.$emit("loadGenres", this.genres.obj);
       });
+  },
+  computed: {
+    filteredAlbums() {
+      return this.albums.filter((album) => {
+        return album.genre.toLowerCase().includes(this.currentGenre);
+      });
+    },
   },
 };
 </script>

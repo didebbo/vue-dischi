@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <Header :genres="genres" />
+    <Header :genres="genres" @changeGenre="changeGenre" />
     <main>
-      <Albums @loadGenres="loadGenres" />
+      <Albums :currentGenre="currentGenre" @loadGenres="loadGenres" />
     </main>
   </div>
 </template>
@@ -20,11 +20,15 @@ export default {
   data() {
     return {
       genres: [],
+      currentGenre: "",
     };
   },
   methods: {
     loadGenres(genres) {
       this.genres = genres;
+    },
+    changeGenre(currentGenre) {
+      this.currentGenre = currentGenre;
     },
   },
 };
