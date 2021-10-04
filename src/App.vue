@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <Header />
+    <Header :genres="genres" />
     <main>
-      <Albums />
+      <Albums @loadGenres="loadGenres" />
     </main>
   </div>
 </template>
@@ -16,6 +16,16 @@ export default {
   components: {
     Header,
     Albums,
+  },
+  data() {
+    return {
+      genres: [],
+    };
+  },
+  methods: {
+    loadGenres(genres) {
+      this.genres = genres;
+    },
   },
 };
 </script>

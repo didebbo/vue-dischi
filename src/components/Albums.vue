@@ -18,6 +18,15 @@ export default {
   data() {
     return {
       albums: [],
+      genres: {
+        index: ["all"],
+        obj: [
+          {
+            label: "All",
+            value: "",
+          },
+        ],
+      },
     };
   },
   created() {
@@ -25,7 +34,17 @@ export default {
       .get("https://flynn.boolean.careers/exercises/api/array/music")
       .then((res) => {
         this.albums = res.data.response;
-        // console.log(this.albums);
+        this.albums.forEach((album) => {
+          if (!this.genres.index.includes(album.genre.toLowerCase())) {
+            this.genres.index.push(album.genre.toLowerCase());
+            this.genres.obj.push({
+              label: album.genre,
+              value: album.genre.toLowerCase(),
+            });
+          }
+        });
+        console.log(this.genres);
+        this.$emit("loadGenres", this.genres.obj);
       });
   },
 };
