@@ -21,8 +21,13 @@ export default {
   props: ["genres"],
   data() {
     return {
-      currentGenre: "",
+      currentGenre: null,
     };
+  },
+  watch: {
+    genres: function () {
+      this.currentGenre = this.genres[0].value;
+    },
   },
   methods: {
     filterGenre() {

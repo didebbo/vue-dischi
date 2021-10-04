@@ -24,7 +24,7 @@ export default {
     return {
       albums: [],
       genres: {
-        index: ["all"],
+        index: [],
         obj: [
           {
             label: "All",
