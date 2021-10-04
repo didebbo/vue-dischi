@@ -16,7 +16,7 @@ import Album from "./Album.vue";
 
 export default {
   name: "Albums",
-  props: ["currentGenre"],
+  props: ["currentGenre", "currentAuthor"],
   components: {
     Album,
   },
@@ -29,7 +29,15 @@ export default {
           {
             label: "All",
             value: "",
-            selected: true,
+          },
+        ],
+      },
+      authors: {
+        index: [],
+        obj: [
+          {
+            label: "All",
+            value: "",
           },
         ],
       },
@@ -49,14 +57,28 @@ export default {
               selected: false,
             });
           }
+          if (!this.authors.index.includes(album.author.toLowerCase())) {
+            this.authors.index.push(album.author.toLowerCase());
+            this.authors.obj.push({
+              label: album.author,
+              value: album.author.toLowerCase(),
+              selected: false,
+            });
+          }
         });
-        this.$emit("loadGenres", this.genres.obj);
+        this.$emit("loadGenres", {
+          genres: this.genres.obj,
+          authors: this.authors.obj,
+        });
       });
   },
   computed: {
     filteredAlbums() {
       return this.albums.filter((album) => {
-        return album.genre.toLowerCase().includes(this.currentGenre);
+        return (
+          album.genre.toLowerCase().includes(this.currentGenre) &&
+          album.author.toLowerCase().includes(this.currentAuthor)
+        );
       });
     },
   },

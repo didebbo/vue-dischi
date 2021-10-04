@@ -1,8 +1,17 @@
 <template>
   <div id="app">
-    <Header :genres="genres" @changeGenre="changeGenre" />
+    <Header
+      :genres="genres"
+      :authors="authors"
+      @changeGenre="changeGenre"
+      @changeAuthor="changeAuthor"
+    />
     <main>
-      <Albums :currentGenre="currentGenre" @loadGenres="loadGenres" />
+      <Albums
+        :currentGenre="currentGenre"
+        :currentAuthor="currentAuthor"
+        @loadGenres="loadGenres"
+      />
     </main>
   </div>
 </template>
@@ -20,15 +29,21 @@ export default {
   data() {
     return {
       genres: [],
+      authors: [],
       currentGenre: "",
+      currentAuthor: "",
     };
   },
   methods: {
-    loadGenres(genres) {
-      this.genres = genres;
+    loadGenres(obj) {
+      this.genres = obj.genres;
+      this.authors = obj.authors;
     },
     changeGenre(currentGenre) {
       this.currentGenre = currentGenre;
+    },
+    changeAuthor(currentAuthor) {
+      this.currentAuthor = currentAuthor;
     },
   },
 };
