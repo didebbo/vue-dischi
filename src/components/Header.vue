@@ -21,7 +21,7 @@ export default {
   props: ["genres"],
   data() {
     return {
-      currentGenre: null,
+      currentGenre: "",
     };
   },
   watch: {
