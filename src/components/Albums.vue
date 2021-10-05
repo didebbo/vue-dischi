@@ -25,21 +25,11 @@ export default {
       albums: [],
       genres: {
         index: [],
-        obj: [
-          {
-            label: "All",
-            value: "",
-          },
-        ],
+        obj: [],
       },
       authors: {
         index: [],
-        obj: [
-          {
-            label: "All",
-            value: "",
-          },
-        ],
+        obj: [],
       },
     };
   },
@@ -54,7 +44,6 @@ export default {
             this.genres.obj.push({
               label: album.genre,
               value: album.genre.toLowerCase(),
-              selected: false,
             });
           }
           if (!this.authors.index.includes(album.author.toLowerCase())) {

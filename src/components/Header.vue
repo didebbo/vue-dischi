@@ -5,6 +5,7 @@
     </a>
     <div class="filters">
       <select @change="filterAuthor" v-model="currentAuthor">
+        <option value="" selected>All</option>
         <option
           v-for="(author, index) in authors"
           :key="index"
@@ -14,6 +15,7 @@
         </option>
       </select>
       <select @change="filterGenre" v-model="currentGenre">
+        <option value="" selected>All</option>
         <option
           v-for="(genre, index) in genres"
           :key="index"
@@ -35,14 +37,6 @@ export default {
       currentGenre: "",
       currentAuthor: "",
     };
-  },
-  watch: {
-    genres: function () {
-      this.currentGenre = this.genres[0].value;
-    },
-    authors: function () {
-      this.currentAuthor = this.authors[0].value;
-    },
   },
   methods: {
     filterGenre() {
